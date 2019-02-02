@@ -14,29 +14,29 @@ import frc.robot.commands.*;
 
 
 public class Drivetrain extends Subsystem {
-  private VictorSP leftDriveMain = new VictorSP(RobotMap.LEFT_DRIVE_MAIN);
-  private VictorSP leftDriveFollower = new VictorSP(RobotMap.LEFT_DRIVE_FOLLOWER);
-  private VictorSP rightDriveMain = new VictorSP(RobotMap.RIGHT_DRIVE_MAIN);
-  private VictorSP rightDriveFollower = new VictorSP(RobotMap.RIGHT_DRIVE_FOLLOWER);
+    private VictorSP leftDriveMain = new VictorSP(RobotMap.LEFT_DRIVE_MAIN);
+    private VictorSP leftDriveFollower = new VictorSP(RobotMap.LEFT_DRIVE_FOLLOWER);
+    private VictorSP rightDriveMain = new VictorSP(RobotMap.RIGHT_DRIVE_MAIN);
+    private VictorSP rightDriveFollower = new VictorSP(RobotMap.RIGHT_DRIVE_FOLLOWER);
 
-  public Drivetrain(){
-  leftDriveMain.setInverted(true);
-  leftDriveFollower.setInverted(true);
-  rightDriveMain.setInverted(false);
-  rightDriveFollower.setInverted(false);
-  }
+    public Drivetrain(){
+        leftDriveMain.setInverted(true);
+        leftDriveFollower.setInverted(true);
+        rightDriveMain.setInverted(false);
+        rightDriveFollower.setInverted(false);
+    }
 
-  public void drive(double leftPow, double rightPow) {
-    leftDriveMain.set(leftPow);
-    leftDriveFollower.set(leftPow);
-    rightDriveMain.set(rightPow);
-    rightDriveFollower.set(rightPow);
-  }
+    public void drive(double leftPow, double rightPow) {
+        leftDriveMain.set(leftPow);
+        leftDriveFollower.set(leftPow);
+        rightDriveMain.set(rightPow);
+        rightDriveFollower.set(rightPow);
+    }
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new DriveTankCmd());
-  }
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new DriveTankCmd());
+    }
 }
