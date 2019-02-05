@@ -14,8 +14,13 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
-  public static final int LEFT_DRIVE_MAIN = 2;
-  public static final int LEFT_DRIVE_FOLLOWER = 3;
-  public static final int RIGHT_DRIVE_MAIN = 0;
-  public static final int RIGHT_DRIVE_FOLLOWER = 1;
+    // Drive train
+    public static final int LEFT_DRIVE_MAIN = 2;
+    public static final int LEFT_DRIVE_FOLLOWER = 3;
+    public static final int RIGHT_DRIVE_MAIN = 0;
+    public static final int RIGHT_DRIVE_FOLLOWER = 1;
+
+    // Pneumatics solenoids
+    public static final int PNEU_UP = 0;
+    public static final int PNEU_DOWN = 0;
 }

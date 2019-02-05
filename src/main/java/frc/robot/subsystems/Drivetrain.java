@@ -14,33 +14,34 @@ import frc.robot.commands.*;
 
 
 public class Drivetrain extends Subsystem {
-  private VictorSP leftDriveMain = new VictorSP(RobotMap.LEFT_DRIVE_MAIN);
-  private VictorSP leftDriveFollower = new VictorSP(RobotMap.LEFT_DRIVE_FOLLOWER);
-  private VictorSP rightDriveMain = new VictorSP(RobotMap.RIGHT_DRIVE_MAIN);
-  private VictorSP rightDriveFollower = new VictorSP(RobotMap.RIGHT_DRIVE_FOLLOWER);
+    private VictorSP leftDriveMain = new VictorSP(RobotMap.LEFT_DRIVE_MAIN);
+    private VictorSP leftDriveFollower = new VictorSP(RobotMap.LEFT_DRIVE_FOLLOWER);
+    private VictorSP rightDriveMain = new VictorSP(RobotMap.RIGHT_DRIVE_MAIN);
+    private VictorSP rightDriveFollower = new VictorSP(RobotMap.RIGHT_DRIVE_FOLLOWER);
 
-  private double speedScale = 0.2;
+    private double speedScale = 0.2;
+    public Drivetrain(){
+        leftDriveMain.setInverted(true);
+        leftDriveFollower.setInverted(true);
+        rightDriveMain.setInverted(false);
+        rightDriveFollower.setInverted(false);
+    }
 
-  public Drivetrain(){
-  leftDriveMain.setInverted(true);
-  leftDriveFollower.setInverted(true);
-  rightDriveMain.setInverted(false);
-  rightDriveFollower.setInverted(false);
-  }
+    public void drive(double leftPow, double rightPow) {
+        leftPow *= speedScale;
+        rightPow *= speedScale;
+        leftDriveMain.set(leftPow);
+        leftDriveFollower.set(leftPow);
+        rightDriveMain.set(rightPow);
+        rightDriveFollower.set(rightPow);
+    }
 
-  public void drive(double leftPow, double rightPow) {
-    leftPow *= speedScale;
-    rightPow *= speedScale;
-    leftDriveMain.set(leftPow);
-    leftDriveFollower.set(leftPow);
-    rightDriveMain.set(rightPow);
-    rightDriveFollower.set(rightPow);
-  }
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new DriveTankCmd());
-  }
+        //setDefaultCommand(new DriveTankCmd());
+        setDefaultCommand(new DriveArcadeCmd());
+    }
 }
