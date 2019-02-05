@@ -32,6 +32,7 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
     public static Drivetrain drivetrain = new Drivetrain();
     public static OI oi;
+    public static CargoLift cargoLift = new CargoLift();
 
     /**
      * This function is run when the robot is first started up and should be

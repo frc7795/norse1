@@ -14,6 +14,11 @@ public class OI {
     public Joystick driverPad = new Joystick(0);
     public Joystick opPad = new Joystick(1);
 
+    // Joystick reference:
+    // http://wpilib.screenstepslive.com/s/currentCS/m/java/l/599723-joysticks
+    public Button cargoUpButton = new JoystickButton(driverPad, JoystickMap.B);
+    public Button cargoDownButton = new JoystickButton(driverPad, JoystickMap.A);
+
     private static final double STICK_DEADBAND = 0.05;
     private static double stickDeadband(double value, double deadband, double center) {
         return (value < (center + deadband) && value > (center - deadband)) ? center : value;
@@ -33,5 +38,13 @@ public class OI {
 
     public double getDriverRightStickX() {
         return stickDeadband(this.driverPad.getRawAxis(JoystickMap.RIGHT_X), STICK_DEADBAND, 0.0);
+    }
+
+    public boolean getCargoUpButton() {
+        return cargoUpButton.get();
+    }
+
+    public boolean getCargoDownButton() {
+        return cargoDownButton.get();
     }
 }
