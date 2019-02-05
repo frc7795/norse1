@@ -40,13 +40,12 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
    oi = new OI();
-
    new Thread(() -> {
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     camera.setResolution(640, 480);
     
     CvSink cvSink = CameraServer.getInstance().getVideo();
-    CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+    CvSource outputStream = CameraServer.getInstance().putVideo("Blurx", 640, 480);
     
     Mat source = new Mat();
     Mat output = new Mat();
