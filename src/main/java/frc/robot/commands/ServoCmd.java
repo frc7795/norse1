@@ -16,9 +16,11 @@ public class ServoCmd extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        boolean up = Robot.oi.getCargoUpButton();
-        boolean down = Robot.oi.getCargoDownButton();
-        Robot.cargoLift.obey(up, down);
+        //boolean up = Robot.oi.getCargoUpButton();
+        //boolean down = Robot.oi.getCargoDownButton();
+        //Robot.cargoLift.obey(up, down);
+        double trig = Robot.oi.getDriverRightTrigger();
+        Robot.cargoServo.obey(trig);
     }
 
     // Make this return true when this Command no longer needs to run execute()

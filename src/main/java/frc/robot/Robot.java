@@ -14,12 +14,11 @@ import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
-//import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
+//import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 
 /**
@@ -32,7 +31,10 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
     public static Drivetrain drivetrain = new Drivetrain();
     public static OI oi;
-    public static CargoLift cargoLift = new CargoLift();
+    
+    private boolean useCargoLift = false;
+    public static CargoLift cargoLift;
+    public static CargoServo cargoServo;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -41,7 +43,14 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         oi = new OI();
-
+        if (useCargoLift) {
+            // uses A,B buttons
+            cargoLift = new CargoLift();
+        } else {
+            // uses trigger
+            cargoServo = new CargoServo();
+        }
+    
         new Thread(() -> {
             UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
             camera.setResolution(640, 480);

@@ -5,7 +5,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.*;
 
-
+// CargoLift operates the cargo dumper (pneumatic solenoids).
+// It uses the A and B buttons (B up, A down).
 public class CargoLift extends Subsystem {
     // Reference:
     // http://wpilib.screenstepslive.com/s/currentCS/m/java/l/599708-operating-pneumatic-cylinders-solenoids

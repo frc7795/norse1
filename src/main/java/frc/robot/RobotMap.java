@@ -23,4 +23,7 @@ public class RobotMap {
     // Pneumatics solenoids
     public static final int PNEU_UP = 0;
     public static final int PNEU_DOWN = 0;
+
+    // Cargo trigger
+    public static final int CARGO_TRIGGER = 0;
 }

@@ -45,4 +45,8 @@ public class OI {
     public boolean getCargoDownButton() {
         return driverPad.getRawButton(JoystickMap.A);
     }
+
+    public double getDriverRightTrigger() {
+        return driverPad.getRawAxis(JoystickMap.RIGHT_TRIGGER);
+    }
 }
