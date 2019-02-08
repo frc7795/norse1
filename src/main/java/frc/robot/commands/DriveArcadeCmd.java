@@ -20,9 +20,8 @@ public class DriveArcadeCmd extends Command {
     protected void initialize() {
     }
 
-      private static double clip(double val) {
-        //return max(-1.0, min(1.0, val));
-        return val;
+    private static double clip(double val) {
+        return Math.max(-1.0, Math.min(1.0, val));
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,8 +30,8 @@ public class DriveArcadeCmd extends Command {
         double power = Robot.oi.getDriverLeftStickY();
         double steering = Robot.oi.getDriverRightStickX();
 
-        double powerLeft = clip(power + steering);
-        double powerRight = clip(power - steering);
+        double powerLeft = clip(power - steering);
+        double powerRight = clip(power + steering);
 
         Robot.drivetrain.drive(powerLeft, powerRight);
     }
