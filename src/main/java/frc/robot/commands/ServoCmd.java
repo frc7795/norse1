@@ -5,7 +5,7 @@ import frc.robot.Robot;
 
 public class ServoCmd extends Command {
     public ServoCmd() {
-        requires(Robot.cargoLift);
+        requires(Robot.cargoServo);
     }
 
     // Called just before this Command runs the first time

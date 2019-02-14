@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
     public static OI oi;
     
     private boolean useCargoLift = false;
-    public static CargoLift cargoLift;
+    //public static CargoLift cargoLift;
     public static CargoServo cargoServo;
 
     /**
@@ -45,7 +45,7 @@ public class Robot extends TimedRobot {
         oi = new OI();
         if (useCargoLift) {
             // uses A,B buttons
-            cargoLift = new CargoLift();
+            //cargoLift = new CargoLift();
         } else {
             // uses trigger
             cargoServo = new CargoServo();
@@ -66,6 +66,7 @@ public class Robot extends TimedRobot {
                 Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
                 outputStream.putFrame(output);
             }
+            
         }).start();
     }
 

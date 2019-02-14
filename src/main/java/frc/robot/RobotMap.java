@@ -25,5 +25,6 @@ public class RobotMap {
     public static final int PNEU_DOWN = 1;
 
     // Cargo trigger
-    public static final int CARGO_TRIGGER = 0;
+    public static final int CARGO_SERVO_1 = 6;
+    public static final int CARGO_SERVO_2 = 7;
 }

@@ -9,19 +9,22 @@ import frc.robot.commands.*;
 public class CargoServo extends Subsystem {
     // Reference:
     // http://wpilib.screenstepslive.com/s/currentCS/m/java/l/599708-operating-pneumatic-cylinders-solenoids
-    private Servo servo = new Servo(RobotMap.CARGO_TRIGGER);
+    private Servo servo1 = new Servo(RobotMap.CARGO_SERVO_1);
+    private Servo servo2 = new Servo(RobotMap.CARGO_SERVO_2);
     static final double lo = 0.1;
     static final double hi = 0.8;
 
     public CargoServo(){
         // init the controllers?
-        servo.set(lo);
+        servo1.set(lo);
+        servo2.set(lo);
      }
      
     public void obey(double trig) {
         // The incoming trigger value goes from 0 to 1 but we want lo to hi.
         double setting = lerp(trig, 0.0, 1.0, lo, hi);
-        servo.set(setting);
+        servo1.set(setting);
+        servo2.set(setting);
     }
 
     // Linear interpolation.  As x goes from x0 to x1, y goes from y0 to y1.
@@ -33,6 +36,6 @@ public class CargoServo extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new CargoLiftCmd());
+        setDefaultCommand(new ServoCmd());
     }
 }
