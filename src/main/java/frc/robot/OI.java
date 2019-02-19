@@ -13,9 +13,11 @@ public class OI {
     //Controllers
     public Joystick driverPad = new Joystick(0);
     public Joystick opPad = new Joystick(1);
+    
 
     // Joystick reference:
     // http://wpilib.screenstepslive.com/s/currentCS/m/java/l/599723-joysticks
+
 
     private static final double STICK_DEADBAND = 0.05;
     private static double stickDeadband(double value, double deadband, double center) {
@@ -48,5 +50,13 @@ public class OI {
 
     public double getDriverRightTrigger() {
         return driverPad.getRawAxis(JoystickMap.RIGHT_TRIGGER);
+    }
+
+    public boolean LBPressed() {
+        return driverPad.getRawButton(JoystickMap.LB);
+    }
+
+    public boolean RBPressed() {
+        return driverPad.getRawButton(JoystickMap.RB);
     }
 }

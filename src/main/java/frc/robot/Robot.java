@@ -35,6 +35,7 @@ public class Robot extends TimedRobot {
     private boolean useCargoLift = false;
     //public static CargoLift cargoLift;
     public static CargoServo cargoServo;
+    public static boolean driveBackwards = false;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -54,6 +55,9 @@ public class Robot extends TimedRobot {
         new Thread(() -> {
             UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
             camera.setResolution(640, 480);
+
+            UsbCamera camera2 = CameraServer.getInstance().startAutomaticCapture();
+            camera2.setResolution(640, 480);
 
             CvSink cvSink = CameraServer.getInstance().getVideo();
             CvSource outputStream = CameraServer.getInstance().putVideo("Blurx", 640, 480);

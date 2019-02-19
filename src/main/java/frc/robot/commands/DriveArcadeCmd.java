@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class DriveArcadeCmd extends Command {
+    private double lastSetPower = 0.0;
+    private double magicPowerFraction = 0.05;
     public DriveArcadeCmd() {
         requires(Robot.drivetrain);
     }
@@ -28,6 +30,11 @@ public class DriveArcadeCmd extends Command {
     @Override
     protected void execute() {
         double power = Robot.oi.getDriverLeftStickY();
+        if (Robot.driveBackwards) power = -power;
+        // Try to make it more gracious and professional
+        power = lastSetPower + magicPowerFraction * (power - lastSetPower);
+        lastSetPower = power;
+
         double steering = Robot.oi.getDriverRightStickX();
 
         double powerLeft = clip(power - steering);

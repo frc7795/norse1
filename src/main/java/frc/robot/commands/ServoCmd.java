@@ -21,6 +21,9 @@ public class ServoCmd extends Command {
         //Robot.cargoLift.obey(up, down);
         double trig = Robot.oi.getDriverRightTrigger();
         Robot.cargoServo.obey(trig);
+        
+        if (Robot.oi.LBPressed()) Robot.driveBackwards = false;
+        if (Robot.oi.RBPressed()) Robot.driveBackwards = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
