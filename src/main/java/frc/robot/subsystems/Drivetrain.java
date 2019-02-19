@@ -19,7 +19,7 @@ public class Drivetrain extends Subsystem {
     private VictorSP rightDriveMain = new VictorSP(RobotMap.RIGHT_DRIVE_MAIN);
     private VictorSP rightDriveFollower = new VictorSP(RobotMap.RIGHT_DRIVE_FOLLOWER);
 
-    private double speedScale = 0.4;
+    private double speedScale = 1.0; // moved to DriveArcadeCmd
     public Drivetrain(){
         leftDriveMain.setInverted(true);
         leftDriveFollower.setInverted(true);

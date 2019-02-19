@@ -52,6 +52,10 @@ public class OI {
         return driverPad.getRawAxis(JoystickMap.RIGHT_TRIGGER);
     }
 
+    public double getDriverLeftTrigger() {
+        return driverPad.getRawAxis(JoystickMap.LEFT_TRIGGER);
+    }
+
     public boolean LBPressed() {
         return driverPad.getRawButton(JoystickMap.LB);
     }
