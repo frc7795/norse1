@@ -29,8 +29,9 @@ public class DriveArcadeCmd extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        double speedscale = 0.3;
+        double speedscale = 0.6;
         double overdriveSpeedscale = 1.0;
+        double steeringSpeedscale = 0.6;
         double overdrive = Robot.oi.getDriverLeftTrigger();
         double steering = Robot.oi.getDriverRightStickX();
         double power = Robot.oi.getDriverLeftStickY();
@@ -49,6 +50,7 @@ public class DriveArcadeCmd extends Command {
         power = lastSetPower + magicPowerFraction * (power - lastSetPower);
         lastSetPower = power;
 
+        steering = steering * steeringSpeedscale;
         double powerLeft = clip(power - steering);
         double powerRight = clip(power + steering);
 
