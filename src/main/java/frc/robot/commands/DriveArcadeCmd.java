@@ -30,20 +30,15 @@ public class DriveArcadeCmd extends Command {
     @Override
     protected void execute() {
         double speedscale = 0.6;
-        double overdriveSpeedscale = 1.0;
+        double overdriveBoost = 1.0;
         double steeringSpeedscale = 0.6;
         double overdrive = Robot.oi.getDriverLeftTrigger();
         double steering = Robot.oi.getDriverRightStickX();
         double power = Robot.oi.getDriverLeftStickY();
 
-        // for some reason pushing the joystick forward 
-        // makes 'power' negative!
-        if (power < 0.0) {
-             if (Math.abs(steering) < 0.1) {
-                // safety: overdrive only when moving forward
-                power = Math.min(-overdriveSpeedscale * overdrive, speedscale * power);
-             }
-        }
+        // Pressing left trigger adds in overdrive boost
+       double overdriveBoostFactor = 1.0 + overdrive * overdriveBoost;
+       power *= overdriveBoostFactor;
         
         if (Robot.driveBackwards) power = -power;
         // Try to make it more gracious and professional
