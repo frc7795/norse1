@@ -29,7 +29,7 @@ public class DriveArcadeCmd extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        double speedscale = 0.6;
+        //double speedscale = 0.6;
         double overdriveBoost = 1.0;
         double steeringSpeedscale = 0.6;
         double overdrive = Robot.oi.getDriverLeftTrigger();
